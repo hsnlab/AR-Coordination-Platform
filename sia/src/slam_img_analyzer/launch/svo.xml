@@ -1,0 +1,26 @@
+<launch>
+    
+    <!-- SVO node -->
+    <node name="svo" type="svo_node" pkg="svo_ros" 
+        output="screen" clear_params="true" args="cam_name:=euroc_mono" >
+        <!-- Camera topic to subscribe to -->
+        <param name="cam0_topic" value="cam0/image_raw" type="str" />
+
+        <!-- Camera calibration file -->
+        <param name="calib_file" value="$(find svo_ros)/param/calib/euroc_mono.yaml" />
+
+        <!--Parameters-->
+        <rosparam file="$(find svo_ros)/param/pinhole.yaml" />
+        <param name="map_scale" value="1" />
+        
+        <!-- Loop closure detection parameters -->
+        <param name="runlc" value="false" />
+        <!--<rosparam file="$(find svo_ros)/param/loop_closing.yaml" />-->
+        <!--<param name="voc_path" value="$(find svo_online_loopclosing)/vocabularies/" type="str" />-->
+    </node>
+
+    <!-- RVIZ + SVO GUI -->
+    <node name="vis" pkg="rviz" type="rviz" args=" -d $(find svo_ros)/rviz_config.rviz" />
+    <node name="svo_gui" pkg="rqt_gui" type="rqt_gui" args="-s rqt_svo.svo.Svo --args --topic svo" />
+
+</launch>

@@ -1,0 +1,8 @@
+Library/
+obj/
+Build/
+Logs/
+Temp/
+Android_native_camera_plugin/NativeCameraHandler/build
+.vs/
+old_files/

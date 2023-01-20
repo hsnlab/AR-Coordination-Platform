@@ -1,0 +1,53 @@
+#docker build -t trafficlab/cloudslam .
+#docker run -ti --name maplab trafficlab/cloudslam
+
+version: '2.1'
+
+services:
+
+  cloudslam_orb_lsd_rovioli_pred_pub:
+    build: .
+    image: dokaj/cloudslam_orb_lsd_rovioli_pred_pub
+    container_name: cloudslam_orb_lsd_rovioli_pred_pub
+    hostname: maplab
+    ports:
+      - 5900:5900
+      - 8090:8090
+      - 8091:8091
+      - 8092:8092
+      - 8093:8093
+      - 8094:8094
+      - 8095:8095
+      - 8096:8096
+      - 9090:9090
+      - 11311:11311
+      - 58171:58171/udp
+      - 58172:58172/udp
+      - 58173:58173/udp
+    environment:
+      DISPLAY: :20
+      MAPLAB_INPUTMAP: globalmap
+      # MAPLAB_OUTPUT: keepall / ask / delete
+      MAPLAB_OUTPUT: ask
+      MAPLAB_OUTPUTMAP: map_save_folder
+      #MAPLAB_CONFIG_CAMERA: s10_cam.yaml
+      #MAPLAB_CONFIG_IMU_MAPLAB: s10_imu_maplab.yaml
+      #MAPLAB_CONFIG_IMU_ROVIOLI: s10_imu.yaml
+      MAPLAB_CONFIG_CAMERA: iPhone_12_Pro_1280x720_maplab_camchain.yaml
+      MAPLAB_CONFIG_IMU_MAPLAB: iPhone_12_Pro_1280x720_maplab_imu_maplab.yaml
+      MAPLAB_CONFIG_IMU_ROVIOLI: iPhone_12_Pro_1280x720_maplab_imu_rovio.yaml
+      #MAPLAB_CONFIG_CAMERA: p30_cam.yaml
+      #MAPLAB_CONFIG_IMU_MAPLAB: p30_imu_maplab.yaml
+      #MAPLAB_CONFIG_IMU_ROVIOLI: p30_imu.yaml
+      # MAPLAB_CONFIG_CAMERA: a3_camchain.yaml
+      # MAPLAB_CONFIG_IMU_MAPLAB: a3_imu_maplab.yaml
+      # MAPLAB_CONFIG_IMU_ROVIOLI: a3_imu_rovio.yaml
+      LSD_CONFIG_FILE: iphone.cfg
+      #LSD_CONFIG_FILE: p30.cfg
+      #LSD_CONFIG_FILE: s10.cfg
+      ROSCORE_PORT: 11311
+      ROS_HOSTNAME: localhost
+      ROS_MASTER_URI: http://localhost:11311
+      ROSBRIDGE_PORT: 9090
+    volumes:
+      - ./volumes/globalmap:/maplab_ws/globalmap

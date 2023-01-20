@@ -1,0 +1,5 @@
+<launch>
+    <node name="live_lsd_slam" type="live_slam" pkg="lsd_slam_core" 
+        output="screen" args="image:=/cam0/image_raw _calib:=$(find slam_img_analyzer)/calib/LSD_letica.cfg" >
+    </node>
+</launch>

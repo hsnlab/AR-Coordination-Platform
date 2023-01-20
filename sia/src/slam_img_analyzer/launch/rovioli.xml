@@ -1,0 +1,14 @@
+<launch>
+    <node name="rovioli" type="rovioli" pkg="rovioli" 
+        output="screen" args="--alsologtostderr=1 \
+         --v=2 \
+         --ncamera_calibration==$(env NCAMERA_CALIBRATION) \
+         --imu_parameters_maplab=$IMU_PARAMETERS_MAPLAB \
+         --imu_parameters_rovio=$IMU_PARAMETERS_ROVIO \
+         --datasource_type='rosbag' \
+         --save_map_folder=$LOCALIZATION_MAP_OUTPUT \
+         --optimize_map_to_localization_map=false \
+         --map_builder_save_image_as_resources=false \
+         --datasource_rosbag=$ROSBAG $REST" >
+    </node>
+</launch>

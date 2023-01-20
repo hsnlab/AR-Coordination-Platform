@@ -1,0 +1,4 @@
+<launch>
+    <node name="sia_decision_maker" type="decision_maker" pkg="slam_img_analyzer" output="screen" />
+    <node name="sia_example_publisher" type="example_publisher" pkg="slam_img_analyzer" output="screen" />
+</launch>

@@ -1,0 +1,8 @@
+<launch>
+        <!-- Parameterize SLAMs  -->
+        <include file="$(find slam_img_analyzer)/launch/lsd_slam.xml" />
+        <include file="$(find slam_img_analyzer)/launch/svo.xml" />
+
+        <!-- Start Decision Maker -->
+        <include file="$(find slam_img_analyzer)/launch/decision_maker.xml" />
+</launch>

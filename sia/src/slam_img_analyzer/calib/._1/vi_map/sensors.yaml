@@ -1,0 +1,68 @@
+sensors:
+  - id: c63aecb41bfdfd6b7e1fac37c7cbe7bf
+    sensor_type: IMU
+    hardware_id: imu0
+    sigmas:
+      gyro_noise_density: 0.0001
+      gyro_bias_random_walk_noise_density: 0.0001
+      acc_noise_density: 0.004
+      acc_bias_random_walk_noise_density: 0.004
+    saturation_accel_max_mps2: 150
+    saturation_gyro_max_radps: 7.5
+    gravity_magnitude_mps2: 9.81
+ncameras:
+  - label: Euroc - original_calibration
+    id: 412eab8e4058621f7036b5e765dfe812
+    cameras:
+      - camera:
+          label: cam0
+          id: 54812562fa109c40fe90b29a59dd7798
+          line-delay-nanoseconds: 0
+          image_height: 480
+          image_width: 752
+          type: pinhole
+          intrinsics:
+            rows: 4
+            cols: 1
+            data:
+              - 458.6548807207614
+              - 457.2966964634893
+              - 367.2158039615726
+              - 248.3753406098073
+          distortion:
+            type: radial-tangential
+            parameters:
+              rows: 4
+              cols: 1
+              data:
+                - -0.2834081121702935
+                - 0.07395907389290132
+                - 0.000193595028569096
+                - 1.761871145453853e-05
+        T_B_C:
+          rows: 4
+          cols: 4
+          data:
+            - 0.01486554298227205
+            - -0.9998809296980572
+            - 0.004140296794206034
+            - -0.02164014549750963
+            - 0.9995572490079426
+            - 0.01496721332518403
+            - 0.02571552994797613
+            - -0.06467698676802901
+            - -0.02577443669741396
+            - 0.00375618835794613
+            - 0.9996607271779514
+            - 0.009810730589490326
+            - 0
+            - 0
+            - 0
+            - 1
+mission_sensors_associations:
+  - mission_id: e33b154e000000000f00000000000000
+    sensor_ids:
+      - sensor_id: c63aecb41bfdfd6b7e1fac37c7cbe7bf
+mission_ncamera_associations:
+  - mission_id: e33b154e000000000f00000000000000
+    ncamera_id: 412eab8e4058621f7036b5e765dfe812
