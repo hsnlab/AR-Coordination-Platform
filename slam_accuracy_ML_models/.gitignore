@@ -1,0 +1,6 @@
+*~
+*.pyc
+*.swp
+*.out
+__pycache__
+.idea/

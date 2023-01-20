@@ -13,3 +13,6 @@ Unity application to stream camera images and IMU data.
 
 ### IMU publisher
 IMU publisher C++ plugin for Unity application
+
+### SLAM accuracy ML models
+ML based posed and RPE calculater
